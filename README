@@ -1,0 +1,5 @@
+Some Munin plugins for OS X
+
+The temperature monitor plugin requires the Temperature Monitor app to be installed from http://www.bresink.de/osx/TemperatureMonitor.html. This app adds a command-line program `tempmonitor` that can be called within a script.
+
+

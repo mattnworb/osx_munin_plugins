@@ -1,0 +1,18 @@
+#!/bin/bash
+
+TEMPMONITOR_HOME=/Applications/TemperatureMonitor.app/Contents/MacOS
+
+# If run with the "config"-parameter, give out information on how the
+# graphs should look. 
+ 
+if [ "$1" = "config" ]; then 
+    echo "graph_title Temperatures (C)"
+    echo "graph_vlabel temp"
+    echo "harddrive.label HD"
+    echo "cpu.label CPU"
+    echo "gpu.label GPU"
+    echo "gpudiode.label GPU diode"
+    exit 0
+fi
+
+$TEMPMONITOR_HOME/tempmonitor -c -l -a  | grep -E "(SMART Disk)|(CPU A DIODE)|(GPU.*CHIP)|(GPU DIODE)" |  sed -e 's/SMC CPU A DIODE:/cpu.value/' -e 's/SMART Disk .*:/hd.value/' -e 's/SMC GPU 1 CHIP/gpu.value/' -e 's/SMC GPU DIODE/gpudiode.value/' -e 's/ C//'
