@@ -15,4 +15,4 @@ if [ "$1" = "config" ]; then
     exit 0
 fi
 
-$TEMPMONITOR_HOME/tempmonitor -c -l -a  | grep -E "(SMART Disk)|(CPU A DIODE)|(GPU.*CHIP)|(GPU DIODE)" |  sed -e 's/SMC CPU A DIODE:/cpu.value/' -e 's/SMART Disk .*:/harddrive.value/' -e 's/SMC GPU 1 CHIP/gpu.value/' -e 's/SMC GPU DIODE/gpudiode.value/' -e 's/ C//'
+$TEMPMONITOR_HOME/tempmonitor -c -l -a  | grep -E "(SMART Disk)|(CPU A DIODE)|(GPU.*CHIP)|(GPU DIODE)" |  sed -e 's/SMC CPU A DIODE:/cpu.value/' -e 's/SMART Disk .*:/harddrive.value/' -e 's/SMC GPU 1 CHIP:/gpu.value/' -e 's/SMC GPU DIODE:/gpudiode.value/' -e 's/ C//'
