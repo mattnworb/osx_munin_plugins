@@ -7,6 +7,7 @@ TEMPMONITOR_HOME=/Applications/TemperatureMonitor.app/Contents/MacOS
  
 if [ "$1" = "config" ]; then 
     echo "graph_title Temperatures (C)"
+    echo "graph_category sensors"
     echo "graph_vlabel temp"
     echo "harddrive.label HD"
     echo "cpu.label CPU"
